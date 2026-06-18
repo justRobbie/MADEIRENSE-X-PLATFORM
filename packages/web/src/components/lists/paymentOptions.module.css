@@ -1,0 +1,27 @@
+.list {
+    composes: list from "./list.module.css";
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(10px, 100%));
+    column-gap: 2px;
+}
+
+.list li {
+    overflow: hidden;
+    border: var(--border-width) solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.list li:hover {
+    background-color: var(--payment-types-list-background-hover);
+}
+
+.list li:has(label) {
+    padding: 0px;
+}
+
+.list li label {
+    @apply flex flex-row justify-start items-center gap-2 w-full;
+    padding: 15px;
+}

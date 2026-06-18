@@ -1,0 +1,29 @@
+.picker {
+    --picker-height: 400px;
+
+    height: auto;
+    min-height: var(--picker-height);
+    width: 100%;
+}
+
+.picker div[data-section="map"] {
+    @apply border rounded-lg overflow-hidden w-full;
+
+    position: relative;
+
+    height: var(--picker-height);
+    min-height: var(--picker-height);
+}
+
+.controls {
+    --padding: 10px;
+
+    @apply flex flex-row justify-start items-center gap-2;
+
+    position: absolute;
+
+    left: 100%;
+    top: var(--padding);
+    transform: translateX(calc(-100% - var(--padding)));
+    z-index: 1000;
+}

@@ -1,0 +1,140 @@
+.card {
+    composes: card from "./card.module.css";
+
+    --card-height: 265px;
+    --card-width: 587px;
+
+    position: relative;
+
+    display: grid;
+    grid-template-areas:
+        "title"
+        "info"
+    ;
+
+    overflow: hidden;
+}
+
+.component {
+    composes: card;
+
+    align-content: flex-end;
+    column-gap: var(--card-column-gap, var(--card-gap, 10px));
+    row-gap: var(--card-row-gap, var(--card-gap, 5px));
+    grid-template-rows: 36px 30px;
+
+    height: var(--card-height);
+    max-height: var(--card-height);
+    min-height: var(--card-height);
+
+    padding: var(--card-padding, 10px);
+
+    background-color: var(--card-background-color, #000);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    border-color: var(--card-border-color, none);
+    border-radius: var(--card-border-radius, 10px);
+    border-style: solid;
+    border-width: var(--border-width);
+}
+
+.component div[data-area]:not([data-area="video"]) {
+    color: white;
+    mix-blend-mode: difference;
+}
+
+.component div[data-type="overlay"],
+.component div[data-area="video"],
+.component video {
+    --h: 100%;
+    --w: 100%;
+
+    height: var(--h);
+    max-height: var(--h);
+    min-height: var(--h);
+    width: var(--w);
+    max-width: var(--w);
+    min-width: var(--w);
+}
+
+.component div[data-type="overlay"],
+.component div[data-area="video"] {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.component:hover div[data-type="overlay"],
+.component:hover div[data-area="video"] {
+    opacity: 1;
+}
+
+.component div[data-area="title"],
+.component div[data-area="information"] {
+    @apply w-full flex flex-row justify-start items-center gap-2;
+}
+
+.component div[data-area="information"] {
+    grid-area: info;
+}
+
+.component div[data-area="title"] {
+    grid-area: title;
+}
+
+.component div[data-area="title"] *:not(span) {
+    @apply text-3xl;
+}
+
+.component div[data-area="video"] {
+    @apply flex flex-row justify-center items-center;
+}
+
+.component div[data-type="overlay"] {
+    pointer-events: none;
+    background: linear-gradient(to top, black 10%, transparent 40%);
+}
+
+/* TODO: Unimplemented style > danger */
+.danger {
+    composes: component;
+}
+
+/* TODO: Unimplemented style > important */
+.important {
+    composes: component;
+}
+
+/* TODO: Unimplemented style > primary */
+.primary {
+    composes: component;
+}
+
+/* TODO: Unimplemented style > secondary */
+.secondary {
+    composes: component;
+}
+
+/* TODO: Unimplemented style > selected */
+.selected {
+    composes: component;
+}
+
+/* TODO: Unimplemented style > success */
+.success {
+    composes: component;
+}
+
+/* TODO: Unimplemented style > warning */
+.warning {
+    composes: component;
+}
+
+.page {
+    row-gap: 5px;
+    column-gap: 10px;
+}

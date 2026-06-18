@@ -1,0 +1,3 @@
+.grid {
+    composes: grid from "../grid.module.css";
+}

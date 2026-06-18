@@ -1,0 +1,149 @@
+.form fieldset {
+    display: grid;
+    grid-template-columns: 1fr var(--base-button-height);
+    grid-template-areas:
+        "chat   chat"
+        "input  button"
+    ;
+}
+
+.form fieldset input,
+.form fieldset button[type="submit"] {
+    border-top-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+}
+
+.form fieldset button[type="submit"] {
+    border-bottom-left-radius: 0px !important;
+    grid-area: button;
+}
+
+.form fieldset input {
+    border-bottom-right-radius: 0px !important;
+    grid-area: input;
+}
+
+.form fieldset ul {
+    --height: 300px;
+    --error-height: 40px;
+    --padding: 20px;
+
+    @apply w-full flex flex-col justify-start items-start gap-1;
+    position: relative;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: var(--padding);
+    min-height: var(--height);
+    overflow-y: auto;
+    grid-area: chat;
+}
+
+.form fieldset ul * {
+    font-size: 12px;
+}
+
+.form fieldset ul:has(li[data-type="error"]) {
+    padding-bottom: calc(var(--padding) + var(--error-height));
+}
+
+
+.form fieldset ul li,
+.form fieldset ul li * {
+    color: white !important;
+}
+
+.form fieldset ul li[data-type="error"],
+.form fieldset ul li[data-type="fetching"] {
+    position: absolute;
+}
+
+.form fieldset ul li[data-type="error"] {
+    @apply w-full flex flex-row gap-2 justify-start items-center px-3;
+    @apply bg-red-700 text-red-100;
+    height: var(--error-height);
+    max-height: var(--error-height);
+    min-height: var(--error-height);
+    top: 100%;
+    left: 0px;
+    transform: translateY(-100%);
+}
+
+.form fieldset ul li[data-type="fetching"] {
+    @apply w-full h-full flex justify-center items-center text-white;
+    top: 0px;
+    left: 0px;
+}
+
+.form fieldset ul li[data-type="me"],
+.form fieldset ul li[data-type="them"] {
+    @apply flex flex-col justify-start items-start;
+    max-width: 65%;
+    min-width: 7%;
+    padding: 4px 10px;
+    border-radius: 5px;
+}
+
+.form fieldset ul li[data-type="me"] {
+    margin-left: auto;
+}
+
+.form fieldset ul li>div {
+    @apply flex flex-row justify-start items-center gap-3 w-full;
+}
+
+.form fieldset ul li>div span:first-of-type {
+    @apply font-semibold underline;
+}
+
+.form fieldset ul li > span:last-of-type {
+    @apply italic;
+    font-size: 9px;
+    opacity: 0.6;
+}
+
+/* TODO: Unimplemented style > danger */
+.danger {
+    composes: form;
+}
+
+/* TODO: Unimplemented style > important */
+.important {
+    composes: form;
+}
+
+.primary {
+    composes: form;
+}
+
+.primary fieldset ul {
+    background-color: rgb(13, 1, 63);
+}
+
+.primary fieldset ul li[data-type="them"] {
+    background-color: rgb(71, 50, 157);
+}
+
+.primary fieldset ul li[data-type="me"] {
+    background-color: rgb(10, 58, 104);
+    margin-left: auto;
+}
+
+/* TODO: Unimplemented style > secondary */
+.secondary {
+    composes: form;
+}
+
+/* TODO: Unimplemented style > selected */
+.selected {
+    composes: form;
+}
+
+/* TODO: Unimplemented style > success */
+.success {
+    composes: form;
+}
+
+/* TODO: Unimplemented style > warning */
+.warning {
+    composes: form;
+}

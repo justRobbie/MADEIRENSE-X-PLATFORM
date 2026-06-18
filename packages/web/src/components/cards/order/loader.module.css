@@ -1,0 +1,9 @@
+.loader {
+    composes: order from "./index.module.css";
+
+    @apply animate-pulse;
+
+    --card-border-color: var(--secondary);
+
+    --card-background-color: color-mix(in srgb, var(--secondary), white 20%);
+}

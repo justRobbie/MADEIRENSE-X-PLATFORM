@@ -1,0 +1,64 @@
+.modal {
+    --height: 500px;
+    --width: 800px;
+    
+    @apply flex flex-col justify-start items-start gap-2;
+
+    overflow: hidden;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+    
+    left: 50%;
+    top: calc(50% - calc(var(--height) / 2) + calc(var(--height) / 3));
+    transform: translateX(-50%);
+
+    height: var(--height);
+    max-height: var(--height);
+    min-height: var(--height);
+    width: var(--width);
+    max-width: 80%;
+    min-width: var(--width);
+
+    border-radius: 20px; 
+    padding: 20px;
+    
+    background-color: var(--base-background);
+    opacity: 0;
+}
+
+.modal > header:first-child {
+    @apply w-full flex flex-row justify-start items-center;
+}
+
+.modal main {
+    overflow: auto;
+
+    padding: 0px;
+
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+}
+
+.modal::backdrop {
+    pointer-events: none;
+
+    background-color: transparent;
+    opacity: 0;
+}
+
+.modal[open] {
+    pointer-events: all;
+
+    top: calc(50% - calc(var(--height) / 2));
+
+    opacity: 1;
+}
+
+.modal[open]::backdrop {
+    background-color: black;
+    
+    pointer-events: all;
+    opacity: 0.7;
+}

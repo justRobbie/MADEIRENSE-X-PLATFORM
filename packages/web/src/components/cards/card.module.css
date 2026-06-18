@@ -1,0 +1,7 @@
+.card {
+    --card-background-color: var(--background-color);
+    
+    --card-border-color: var(--border-color, #d4d4d4);
+
+    --card-text-color: #000;
+}

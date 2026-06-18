@@ -1,0 +1,111 @@
+.card {
+    composes: card from "../card.module.css";
+
+    --card-padding: 10px;
+    
+    --card-button-height: 29.33px;
+    --card-tags-height: 35px;
+
+    --card-height: calc(calc(var(--card-tags-height) * 2px) + var(--progress-bar-height) + calc(var(--card-padding) * 2px) + 0.5rem);
+
+    overflow: hidden;
+
+    height: var(--card-height);
+    max-height: var(--card-height);
+    min-height: var(--card-height);
+
+    padding: var(--card-padding);
+
+    border-color: var(--card-border-color);
+    border-radius: var(--card-border-radius, 7px);
+    border-style: solid;
+    border-width: var(--card-border-width, var(--border-width));
+
+    background-color: var(--card-background-color);
+}
+
+.card * {
+    white-space: nowrap;
+}
+
+.card a {
+    @apply flex flex-row justify-center items-center gap-4;
+    @apply bg-gray-300;
+
+    border: var(--border-width) solid var(--border-color);
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+.card:has(div[class*="progress" i][data-status="cancelled"]) div[class*="progress" i] {
+    opacity: 0.4;
+}
+
+.default {
+    @apply flex flex-col justify-center items-center gap-2;    
+}
+
+.indexed {
+    display: grid;
+    row-gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: var(--card-tags-height) var(--progress-bar-height) var(--card-tags-height);
+    grid-template-areas: 
+        "index  tags1"
+        "index  progress"
+        "index  tags2"
+    ;
+}
+
+.indexed > div:nth-child(2) {
+    grid-area: tags1;
+}
+
+.indexed > div:nth-child(3) {
+    grid-area: tags2;
+}
+
+.indexed > div[class*="progress" i] {
+    grid-area: progress;
+}
+
+.indexed > span {
+    @apply font-black text-4xl;
+    grid-area: index;
+    text-align: center;
+}
+
+/* TODO: Unimplemented style > danger */
+.danger {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > important */
+.important {
+    composes: card;
+}
+
+.primary {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > secondary */
+.secondary {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > selected */
+.selected {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > success */
+.success {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > warning */
+.warning {
+    composes: card;
+}

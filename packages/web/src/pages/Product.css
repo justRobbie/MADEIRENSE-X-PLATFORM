@@ -1,0 +1,138 @@
+main[data-view="product-table"] {
+    display: grid;
+    position: relative;
+    overflow: auto;
+    gap: 0px;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "card"
+        "table"
+    ;
+}
+
+main[data-view="product-table"] div[class*="ProductCard"] {
+    --h: 410px;
+
+    height: var(--h);
+    max-height: var(--h);
+    min-height: var(--h);
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom: none;
+    grid-area: card;
+}
+
+main[data-view="product-table"] > header {
+    @apply flex flex-row justify-start items-center gap-2;
+    z-index: 20;
+    position: absolute;
+    top: var(--container-padding);
+    left: 100%;
+    transform: translate(calc(-100% - var(--container-padding) - 20px), 20px);
+}
+
+main[data-view="product-table"] > header span {
+    background-color: white;
+}
+
+main[data-view="product-table"] table {
+    height: max-content;
+    overflow: hidden;
+    grid-area: table;
+    background-color: var(--background-card);
+    border-color: var(--neutral);
+    border-collapse: separate;
+    border-spacing: 0 0.5em;
+    border-width: var(--border-width);
+    border-style: solid;
+    table-layout: fixed;
+    border-bottom-left-radius: var(--card-product-border-radius);
+    border-bottom-right-radius: var(--card-product-border-radius);
+}
+
+main[data-view="product-table"] table tbody[data-section] {
+    row-gap: 5px;
+}
+
+main[data-view="product-table"] table tbody tr td > div {
+    @apply flex flex-col justify-start items-start;
+    padding: 10px;
+}
+
+main[data-view="product-table"] table tbody tr td {
+    --py: calc(var(--container-padding) * 1);
+    --px: calc(var(--container-padding) * 3);
+
+    padding-left: var(--px);
+    padding-right: var(--px);
+}
+
+main[data-view="product-table"] table tbody tr:first-of-type td {
+    padding-top: var(--py);
+}
+
+main[data-view="product-table"] table tbody tr:last-of-type td {
+    padding-bottom: var(--py);
+}
+
+main[data-view="product-table"] table tbody td form {
+    @apply flex flex-row justify-start items-center gap-3 w-full flex-nowrap py-2;
+}
+
+main[data-view="product-table"] table tbody td form input {
+    min-height: var(--base-button-height);
+    width: 100%;
+    padding: 10px;
+    border-width: var(--border-width);
+    border-style: solid;
+    border-radius: 5px;
+}
+
+main[data-view="product-table"] thead[data-section="error"] th {
+    padding: 5px 7px;
+}
+
+main[data-view="product-table"] ul[class*="selector"] {
+    @apply flex flex-row justify-start items-start w-full;
+    height: var(--product-page-selector-list-height);
+    max-height: var(--product-page-selector-list-height);
+    min-height: var(--product-page-selector-list-height);
+    grid-area: ul;
+}
+
+main[data-view="product-table"] ul[class*="selector"] li {
+    @apply flex flex-row justify-center items-center gap-2;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-width: var(--border-width);
+    border-style: solid;
+    background-color: var(--base-background);
+    border-bottom-width: 0px;
+    text-align: center;
+}
+
+main[data-view="product-table"] ul[class*="selector"] li[data-selected="true"] {
+    color: var(--base-text-selected);
+    background-color: var(--base-background-selected);
+}
+
+main[data-view="product-table"] ul[class*="selector"] li[data-selected="true"] * {
+    color: var(--base-text-selected);
+}
+
+main[data-view="product-table"] ul[class*="selector"] li[data-selected="false"]:hover {
+    background-color: var(--base-background-hover);
+}
+
+main[data-view="product-table"] ul[class*="selector"] li {
+    border-color: var(--border-color);
+}
+
+main[data-view="product-table"] thead[data-section="error"] th {
+    @apply bg-red-200 text-red-950;
+}

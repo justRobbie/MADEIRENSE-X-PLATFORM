@@ -1,0 +1,9 @@
+#delivery-map div[class*="ProfileHeaderCard"] {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#delivery-map div[class*="ProfileHeaderCard"]+div[class*="GoogleMapDeliveryTracker"] div:first-child {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}

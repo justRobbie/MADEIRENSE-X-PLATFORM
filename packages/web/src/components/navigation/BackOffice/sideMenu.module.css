@@ -1,0 +1,80 @@
+.menu {
+    @apply flex flex-col justify-start items-center;
+
+    z-index: 999;
+    grid-area: aside;
+    position: relative;
+
+    max-width: var(--aside-menu-width);
+    min-width: 0px;
+    
+    padding-top: calc(var(--application-nav-bar-height));
+    padding-bottom: var(--application-nav-bar-height);    
+
+    transition-duration: 0.5s;
+}
+
+.menu ul {
+    overflow: hidden;
+    transition-duration: 0.5s;
+}
+
+.menu:not([data-toggled]) {
+    padding-left: 0px;
+    padding-right: 0px;
+    border-width: 0px;
+    background-color: transparent;
+    border-color: transparent;
+    width: 0px;
+}
+
+.menu:not([data-toggled]) ul {
+    width: 0px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu:not([data-toggled]) #toggler {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    transform: translate(-30%, -35%);
+}
+
+.menu:not([data-toggled]) #toggler:hover {
+    transform: translate(-10%, -35%);
+}
+
+.menu[data-toggled] {
+    --px: calc(var(--container-padding) - 8px);
+
+    background-color: var(--base-background);
+    border-right: calc(var(--border-width) * 2) solid var(--secondary);
+    padding-left: var(--px);
+    padding-right: var(--px);
+    width: var(--max-width);
+}
+
+.menu[data-toggled] ul {
+    opacity: 1;
+    width: 100%;
+}
+
+.menu[data-toggled] #toggler {
+    transform: translate(-50%, -35%);
+}
+
+.menu[data-toggled] #toggler:hover {
+    transform: translate(-70%, -35%);
+}
+
+.menu #toggler {
+    border: none;
+    position: absolute;
+    top: calc(var(--application-nav-bar-height) / 2);
+    left: 100%;
+    transition: transform 2s ease-in-out;
+}
+
+.menu #toggler svg {
+    transition: transform 1s ease-in-out;
+}

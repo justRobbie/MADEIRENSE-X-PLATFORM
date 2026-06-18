@@ -1,0 +1,28 @@
+.list {
+    composes: list from "../list.module.css";
+    
+    --img-size: 150px;
+    
+    border-top: var(--border-width) solid var(--border-color);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.list li:last-child {
+    @apply font-bold p-3 text-lg;
+    
+    color: var(--base-text-contrast-color);
+    background-color: var(--secondary);
+    justify-content: space-between;
+}
+
+.list li:last-child * {
+    color: var(--base-text-contrast-color);
+}
+
+.list li div[data-type="thumbnail"] {
+    height: 50px;
+    width: var(--img-size);
+    border-radius: 10px;
+}

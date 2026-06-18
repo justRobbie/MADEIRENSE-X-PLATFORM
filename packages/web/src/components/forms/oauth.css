@@ -1,0 +1,9 @@
+.form button[value="google"]:hover {
+    --button-background-color: #f8f9ff;
+    --button-border-color: #4285f4;
+}
+
+.form button[value="facebook"]:hover {
+    --button-background-color: #f0f4ff;
+    --button-border-color: #1877f2;
+}

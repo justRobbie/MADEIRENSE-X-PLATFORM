@@ -1,0 +1,25 @@
+#root[data-page="back-office"] main {
+    --px: 100px;
+
+    padding-left: var(--px);
+    padding-right: var(--px);
+    transition: padding 1s ease-in-out;
+}
+
+#root[data-page="back-office"] main > section:not(:last-of-type) {
+    @apply mb-5;
+}
+
+#root[data-page="back-office"] section:not([class]) header {
+    @apply mb-3;
+}
+
+#root[data-page="back-office"] section header select {
+    background-color: transparent;
+}
+
+@media only screen and (min-width: 751px) {
+    #root:has(aside[data-type="menu"][data-toggled="true"]) main {
+        --px: 50px;
+    }
+}

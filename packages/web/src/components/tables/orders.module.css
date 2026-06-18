@@ -1,0 +1,119 @@
+.table {
+    --img-size: 150px;
+    
+    --row-height: 50px;
+
+    background-color: var(--background-color);
+    width: 100%;
+}
+
+.wrapper {
+    position: fixed;
+    z-index: 10;
+    top: 0px;
+
+    transform: var(--wrapper-offsets, -100%);
+
+    max-height: calc(100% - var(--application-nav-bar-height) - var(--row-height));
+    width: 100%;
+    
+    -ms-overflow-style: none;
+    /* Hides scrollbar in IE and Edge */
+    -moz-overflow-style: none;
+    /* Hides scrollbar in IE and Edge */
+    -webkit-overflow-style: none;
+    /* Hides scrollbar in IE and Edge */
+    scrollbar-width: none;
+    /* Hides scrollbar in Firefox */
+
+    overflow: auto;
+}
+
+.wrapper[data-visible] {
+    --wrapper-offsets: translateY(calc(-100% + var(--application-nav-bar-height) + var(--row-height)));
+}
+
+.wrapper[data-expanded][data-visible] {
+    --wrapper-offsets: translateY(var(--application-nav-bar-height));
+}
+
+.table div[class*="card"] {
+    border: none;
+    border-radius: 0px;
+    padding: 0px;
+}
+
+.table tbody tr[data-row="restaurant"],
+.table tfoot tr:first-child {
+    height: var(--row-height);
+    min-height: var(--row-height);
+    max-height: var(--row-height);
+}
+
+.table tfoot tr:first-child {
+    border-top: var(--border-width) solid var(--border-color);
+}
+
+.table tfoot tr:last-child {
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.table tbody tr[data-row="restaurant"] {
+    background-color: var(--secondary);
+}
+
+.table tbody tr[data-row="restaurant"] span {
+    @apply font-bold;
+    color: var(--base-text-contrast-color);
+    font-size: 1.3em;
+}
+
+.table tr td {
+    @apply px-4;
+}
+
+.table tr:has(div[class*="card"]) td:first-child {
+    border-right: var(--border-width) solid var(--border-color);
+}
+
+.table tfoot td[data-section],
+.table tr td:has(div[class*="card"]) {
+    @apply py-4;
+}
+
+.table td[data-section="summary"] {}
+
+.table td[data-section="summary"] div[data-type="thumbnail"] {
+    height: 50px;
+    width: var(--img-size);
+    border-radius: 10px;
+}
+
+.table td[data-section="chat"] {}
+
+.table td[data-section="history"] {}
+
+.order {
+    composes: table;
+}
+
+.order tfoot tr:first-child {
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.order tfoot tr:last-child {
+    border-top: var(--border-width) solid var(--border-color);
+}
+
+.summary tr {
+    border-right: var(--border-width) solid var(--border-color);
+    border-left: var(--border-width) solid var(--border-color);
+}
+
+#root:has(div[class*="Notifications"][data-state="showing"]) .wrapper[data-visible] {
+    --wrapper-offsets: translateY(calc(-100% + var(--application-nav-bar-height) + var(--row-height)));
+}
+
+#root:has(div[class*="Notifications"][data-state="showing"]) .wrapper[data-expanded][data-visible] {
+    --wrapper-offsets: translateY(calc(var(--application-nav-bar-height)));
+}

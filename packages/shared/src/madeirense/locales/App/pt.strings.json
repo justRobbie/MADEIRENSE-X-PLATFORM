@@ -1,0 +1,40 @@
+{
+    "App": "Madeirense Entregas",
+    
+    "GoodbyeParagraph1": "Sabemos que há momentos em que é preciso seguir outro caminho. Hoje, despedimo-nos com gratidão — por cada prato partilhado, cada memória servida, cada gesto de confiança.",
+    "GoodbyeParagraph2": "A tua conta foi eliminada, mas a tua presença permanece na nossa história.Se um dia quiseres voltar, estaremos aqui — com o mesmo calor, o mesmo sabor, e o mesmo abraço à mesa.",
+    "GoodbyeParagraph3": "Que o teu caminho seja leve, e que nunca te falte um bom prato para aquecer o coração.",
+    "GoodbyeStatement": "Obrigado por fazeres parte do Madeirense Mar.",
+    "GoodbyeTitle": "🌊 Até já, não é um adeus",
+    "GoodbyeCTA": "Até já",
+
+    "Interval$daily": "Diário",
+    "IntervalAffix$daily": "dia",
+    "Interval$monthly": "Mensal",
+    "IntervalAffix$monthly": "mês",
+    "Interval$yearly": "Anual",
+    "IntervalAffix$yearly": "ano",
+
+    "LocationPermissionTitle": "Deixa-nos sentir onde estás",
+    "LocationPermissionDisclaimer": "Para que o sabor da ilha te encontre, onde quer que estejas",
+    "LocationPermissionCTA": "Partilhar",
+    "LocationPermissionAlternative": " Agora não",
+    "LocationPermissionDENIED": "Como não te podemos localizar, terás de indicar a tua localização sempre que fizeres um pedido",
+    "LocationPermissionTIMEOUT": "Podes ativar a localização mais tarde ao fazer o checkout.",
+    "LocationPermissionUNAVAILABLE": "Não te conseguimos localizar. Vamos continuar a tentar — o sabor há de encontrar-te",
+
+    "LoginToCommentOnThisProduct": "Queres deixar a tua marca? Faz login para partilhar sabores, histórias e opiniões com a nossa comunidade",
+    "LoginToOrder": "Inicia sessão e encomenda",
+    "LoginToPurchaseTickets": "Inicia sessão ou inscreve-te para reservares ingressos",
+    
+    "NotificationPermissionTitle": "Permissão para notificações",
+    "NotificationPermissionDescription": "Deixa-nos acompanhar-te com delicadeza — sem invadir, só avisar. Com as notificações activadas, avisamos-te quando o teu pedido estiver a caminho, quando há novidades no menu ou quando celebramos algo especial contigo. Prometemos:",
+    "NotificationPermissionClause1": "Nada de mensagens em excesso.",
+    "NotificationPermissionClause2": "Nada de partilhar os teus dados.",
+    "NotificationPermissionClause3": "Só o essencial, com respeito e sabor.",
+    "NotificationPermissionSetup": "Aceita este convite para estar sempre um passo mais perto da tua próxima viagem gastronómica.",
+    "NotificationPermissionCTA": "Permitir Notificações",
+    "NotificationPermissionAlternative": "Preferes decidir mais tarde?",
+    "NotificationPermissionErrorExplanation": "Pedimos desculpas pelo que de momento não te conseguimos subscrever, mas nos comprometemos à fazê-lo e notificál-lo noutra altura.",
+    "NotificationPermissionErrorCTA": "Okay, sem problema"
+}

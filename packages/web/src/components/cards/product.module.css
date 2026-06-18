@@ -1,0 +1,130 @@
+.card {
+    composes: card from "./card.module.css";
+    
+    --padding: 20px;
+
+    @apply flex flex-col justify-start items-center;
+    
+    overflow: hidden;
+    
+    height: auto;
+
+    border-color: var(--card-border-color, var(--neutral));
+    border-radius: var(--card-border-radius);
+    border-style: var(--card-border-style, solid);
+    border-width: var(--card-border-width, var(--border-width));
+
+    background-color: var(--card-background-color, white);
+}
+
+.card *:not([data-text="price"]) {
+    font-size: small;
+}
+
+.card button,
+.card span[data-text="quantity"] {
+    --size: 40px;
+
+    height: var(--size);
+    min-height: var(--size);
+}
+
+.card button:last-of-type {
+    border: var(--border-width) solid var(--neutral);
+}
+
+.card span[data-text="quantity"] {
+    @apply flex flex-row justify-center items-center;
+    min-width: var(--size);
+    border-radius: 50%;
+}
+
+.card div[data-section="description"] {
+    padding: var(--padding);
+}
+
+.card div[data-section="tags"] {
+    @apply w-full flex flex-row justify-center items-center flex-nowrap;
+    min-height: 24px;
+    overflow: hidden;
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+    border-bottom: var(--border-width) solid var(--neutral);
+}
+
+.card div[data-section="tags"] span[data-text="tag"] {
+    border-color: var(--neutral);
+    border-radius: 0px;
+    border-bottom-width: 0px;
+    border-top-width: 0px;
+}
+
+.card div[data-section="tags"] span[data-text="tag"]:not(:last-child) {
+    border-right-width: 0px;
+}
+
+.card div[data-section="thumbnail"] {
+    --height: 200px;
+
+    width: 100%;
+    height: var(--height);
+    min-height: var(--height);
+    max-height: var(--height);
+    border-bottom: var(--border-width) solid var(--neutral);
+    background-position: center center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.card h4 {
+    --h: 40px;
+
+    @apply font-bold text-center;
+    height: var(--h);
+    min-height: var(--h);
+    max-height: var(--h);
+}
+
+.card p {
+    width: 100%;
+}
+
+.card p:nth-of-type(1) span {
+    font-size: large;
+    font-weight: 700;
+}
+
+/* TODO: Unimplemented style > danger */
+.danger {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > important */
+.important {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > primary */
+.primary {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > secondary */
+.secondary {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > selected */
+.selected {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > success */
+.success {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > warning */
+.warning {
+    composes: card;
+}

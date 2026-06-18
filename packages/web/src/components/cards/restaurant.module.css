@@ -1,0 +1,127 @@
+.card {
+    --default-padding: 10px;
+
+    --card-height: 265px;
+
+    composes: card from "./card.module.css";
+
+    display: grid;
+    column-gap: var(--card-column-gap, 10px);
+    row-gap: var(--card-row-gap, 5px);
+    grid-template-areas:
+        "thumbnail title"
+        "thumbnail info"
+    ;
+
+    height: var(--card-height);
+    max-height: var(--card-height);
+    min-height: var(--card-height);
+
+    padding: var(--card-padding, var(--card-padding-y, var(--default-padding))) var(--card-padding, var(--card-padding-x, var(--default-padding)));
+
+    border-color: var(--card-border-color,var(--border-color));
+    border-radius: var(--card-border-radius, 10px);
+    border-style: var(--card-border-style, solid);
+    border-width: var(--card-border-width, var(--border-width));
+
+    background-color: var(--card-background-color, #fff);
+}
+
+.card a,
+.card h4 {
+    @apply font-bold;
+    
+    grid-area: title;
+    font-size: 1.5em;
+}
+
+.card div[data-section="thumbnail"] {
+    @apply flex flex-col justify-center items-center w-full h-full gap-2;
+    grid-area: thumbnail;
+    background-position: center center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 10px;
+    border-radius: 10px;
+    height: var(--height);
+    max-height: var(--height);
+    min-height: var(--height);
+    width: var(--size);
+    max-width: var(--size);
+    min-width: var(--size);
+}
+
+.card div[data-section="thumbnail"] {
+    --height: 100%;
+}
+
+.card div[data-section="thumbnail"] span {
+    font-size: 10px;
+}
+
+.card section {
+    @apply flex flex-col justify-start items-start gap-2 w-full mt-auto;
+
+    overflow: auto;
+    margin-top: auto;
+    grid-area: info;
+}
+
+.card section span {
+    @apply italic;
+
+    width: 100%;
+    justify-content: center;
+    border-radius: 0px;
+}
+
+.card section span:not(:last-of-type) {
+    border-right-width: 0px;
+}
+
+/* TODO: Unimplemented style > danger */
+.danger {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > important */
+.important {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > primary */
+.primary {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > secondary */
+.secondary {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > selected */
+.selected {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > success */
+.success {
+    composes: card;
+}
+
+/* TODO: Unimplemented style > warning */
+.warning {
+    composes: card;
+}
+
+@media only screen and (max-width: 650px) {}
+
+@media only screen and (max-width: 1239px) {
+    .card {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .card div[data-section="thumbnail"] {
+        --size: 100%;
+    }
+}

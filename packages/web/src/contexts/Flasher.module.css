@@ -1,0 +1,70 @@
+.flasher {
+    --height: 100vh;
+    --width: 100vw;
+
+    position: fixed;
+    background-color: var(--base-background);
+    top: 0px;
+    left: 0px;
+    height: var(--height);
+    min-height: var(--height);
+    max-height: var(--height);
+    width: var(--width);
+    min-width: var(--width);
+    max-width: var(--width);
+    z-index: 10000;
+    overflow-y: auto;
+}
+
+.flasher[data-event] {
+    @apply flex flex-col justify-center items-center gap-3;
+}
+
+.flasher div.loader {
+    @apply animate-pulse;
+    
+    --size: 500px;
+
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, var(--flasher-empty-background) 30%, transparent 70%);
+    border-radius: 100%;
+    height: var(--size);
+    min-height: var(--size);
+    max-height: var(--size);
+    width: var(--size);
+    min-width: var(--size);
+    max-width: var(--size);
+}
+
+.flasher:not([open]),
+.flasher div.loader[data-state="off"] {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.flasher[open],
+.flasher div.loader[data-state="on"] {
+    opacity: 1;
+}
+
+.flasher main {
+    max-width: 60%;
+}
+
+.flasher h1 {
+    font-size: 4rem;
+    margin: 50px;
+}
+
+.flasher #eject {
+    --padding: 10px;
+
+    position: absolute;
+    top: calc(0px + var(--padding));
+    left: 100%;
+    transform: translateX(calc(-100% - var(--padding)));
+}

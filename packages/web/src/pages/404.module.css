@@ -1,0 +1,33 @@
+.page {
+    @apply w-full h-full flex flex-col justify-center items-center gap-2;
+}
+
+.page main a {
+    transition: column-gap 1s ease-in-out;
+}
+
+.page main a:hover {
+    column-gap: 15px;
+    text-decoration: underline;
+}
+
+.page main h1 {
+    @apply font-extrabold;
+    opacity: 0.4;
+    color: var(--neutral);
+    font-size: 10rem;
+    line-height: 10rem;
+}
+
+.page main div hr {
+    --h: 1px;
+    --w: 200px;
+
+    height: var(--h);
+    max-height: var(--h);
+    min-height: var(--h);
+    width: var(--w);
+    max-width: var(--w);
+    min-width: var(--w);
+    background-color: var(--neutral);
+}

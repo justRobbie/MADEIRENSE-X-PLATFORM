@@ -1,0 +1,144 @@
+.notification {
+    --h: var(--button-height);
+
+    @apply flex flex-row justify-start items-center w-full;
+
+    position: absolute;
+
+    left: 0px;
+    top: 0px;
+    z-index: 10001;
+
+    height: var(--h);
+    max-height: var(--h);
+    min-height: var(--h);
+    
+    border-color: var(--notifications-border-color, transparent);
+
+    background-color: var(--notifications-background-color, transparent);
+
+    color: var(--notifications-text-color, black);
+}
+
+.notification[data-state] {
+    padding: 0px;
+}
+
+.notification[data-state="hidden"] {
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+.notification[data-state="showing"] {
+    pointer-events: all;
+    
+    opacity: 1;
+}
+
+.notification *:not(li button) {
+    color: inherit;
+}
+
+.danger {
+    --notifications-background-color: transparent;
+    --notifications-border-color: transparent;
+    --notifications-text-color: black;
+
+    composes: notification;
+}
+
+.important {
+    --notifications-background-color: transparent;
+    --notifications-border-color: transparent;
+    --notifications-text-color: black;
+
+    composes: notification;
+}
+
+.primary {
+    --notifications-background-color: transparent;
+    --notifications-border-color: transparent;
+    --notifications-text-color: black;
+
+    composes: notification;
+}
+
+.secondary {
+    --notifications-background-color: transparent;
+    --notifications-border-color: transparent;
+    --notifications-text-color: black;
+
+    composes: notification;
+}
+
+/* TODO: Unimplemented style > selected */
+.selected {
+    --notifications-background-color: transparent;
+    --notifications-border-color: transparent;
+    --notifications-text-color: black;
+
+    composes: notification;
+}
+
+.success {
+    --notifications-background-color: transparent;
+    --notifications-border-color: transparent;
+    --notifications-text-color: black;
+    
+    composes: notification;
+}
+
+.warning {
+    --notifications-background-color: transparent;
+    --notifications-border-color: transparent;
+    --notifications-text-color: black;
+
+    composes: notification;
+}
+
+.notification>button {
+    --button-border-width: 0px;
+    --button-border-radius: 0px;
+    --button-x-padding: 0px;
+    --width: var(--button-height);
+
+    width: var(--width);
+    max-width: var(--width);
+    min-width: var(--width);
+}
+
+.notification button:disabled {
+    opacity: 0;
+}
+
+.notification div[class*="Progress"] {
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: calc(100% - var(--progress-bar-height));
+    border-radius: 0px;
+}
+
+.notification ul {
+    --w: calc(100% - calc(2 * var(--button-height)));
+}
+
+.notification ul,
+.notification ul li {
+    @apply flex flex-row justify-start items-center;
+
+    height: var(--h);
+    max-height: var(--h);
+    min-height: var(--h);
+    width: var(--w);
+    max-width: var(--w);
+    min-width: var(--w);
+    overflow: hidden;
+}
+
+.notification ul li {
+    @apply justify-between;
+
+    --w: 100%;
+}

@@ -1,0 +1,40 @@
+{
+    "App": "Madeirense Deliveries",
+
+    "GoodbyeParagraph1": "We know there are times when it's necessary to take a different path. Today, we say goodbye with gratitude—for every dish shared, every memory served, every gesture of trust.",
+    "GoodbyeParagraph2": "Your account has been deleted, but your presence remains in our history. If you ever want to return, we'll be here—with the same warmth, the same flavor, and the same embrace at the table.",
+    "GoodbyeParagraph3": "May your path be light, and may there never be a lack of good food to warm your heart.",
+    "GoodbyeStatement": "Thank you for being part of Madeirense Mar.",
+    "GoodbyeTitle": "🌊 This isn't a goobye, but a see-you-later",
+    "GoodbyeCTA": "See you later",
+
+    "Interval$daily": "Daily",
+    "IntervalAffix$daily": "day",
+    "Interval$monthly": "Monthly",
+    "IntervalAffix$monthly": "month",
+    "Interval$yearly": "Yearly",
+    "IntervalAffix$yearly": "year",
+
+    "LocationPermissionTitle": "Let us feel where you are",
+    "LocationPermissionDisclaimer": "So the flavor of the island finds you, wherever you are",
+    "LocationPermissionCTA": " Share",
+    "LocationPermissionAlternative": " Not now",
+    "LocationPermissionDENIED": "Since we can't locate you, you'll need to indicate your location each time you place an order",
+    "LocationPermissionTIMEOUT": "You can enable location later at checkout",
+    "LocationPermissionUNAVAILABLE": "We can't locate you. We'll keep trying — the flavor will find you",
+
+    "LoginToCommentOnThisProduct": "Want to leave your mark? Log in to share flavors, stories, and opinions with our community",
+    "LoginToOrder": "Login to order",
+    "LoginToPurchaseTickets": "Login or register to buy tickets",
+    
+    "NotificationPermissionTitle": "Notification Permission",
+    "NotificationPermissionDescription": "Let us gently follow up with you—no intrusion, just a heads-up. With notifications enabled, we'll let you know when your order is on the way, when there's new additions to the menu, or when we're celebrating something special with you. We promise:",
+    "NotificationPermissionClause1": "No excessive messages.",
+    "NotificationPermissionClause2": "No sharing of your data.",
+    "NotificationPermissionClause3": "Only the essentials, with respect and flavor.",
+    "NotificationPermissionSetup": "Accept this invitation to always be one step closer to your next culinary journey.",
+    "NotificationPermissionCTA": "Allow Notifications",
+    "NotificationPermissionAlternative": "Would you prefer to decide later?",
+    "NotificationPermissionErrorExplanation": "We apologize for this inconvenience, we're currently unable to subscribe you but we're committed to doing so and notifying you at a later date.",
+    "NotificationPermissionErrorCTA": "Okay, no problem"
+}

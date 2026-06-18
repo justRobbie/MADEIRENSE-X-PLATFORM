@@ -1,0 +1,22 @@
+body:has(#root[data-page="events"]) {
+    background-color: black;
+}
+
+body:has(#root[data-page="events"]) main {
+    -ms-overflow-style: none;
+    /* Hides scrollbar in IE and Edge */
+    -moz-overflow-style: none;
+    /* Hides scrollbar in IE and Edge */
+    -webkit-overflow-style: none;
+    /* Hides scrollbar in IE and Edge */
+    scrollbar-width: none;
+    /* Hides scrollbar in Firefox */
+}
+
+body:has(#root[data-page="events"]) main * {
+    color: white;
+}
+
+body:has(#root[data-page="events"]) main ul {
+    gap: 0px;
+}

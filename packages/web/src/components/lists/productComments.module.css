@@ -1,0 +1,6 @@
+.list {
+    composes: list from "./list.module.css";
+    
+    --error-height: 40px;
+    row-gap: 10px;
+}

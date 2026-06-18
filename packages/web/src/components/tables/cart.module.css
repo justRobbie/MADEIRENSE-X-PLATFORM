@@ -1,0 +1,141 @@
+:root {
+    --cart-height-offset: 60px;
+}
+
+.table {
+    --img-size: 250px;
+    
+    --row-height: var(--cart-height-offset);
+    
+    z-index: 10;
+
+    width: 100%;
+
+    background-color: var(--table-background-color, var(--background-color));
+}
+
+.table[data-state="discarding"] {
+    @apply animate-pulse;
+}
+
+.table div[data-type="thumbnail"] {
+    height: 100px;
+    width: var(--img-size);
+}
+
+.table tbody tr:first-child,
+.table tfoot tr:last-child {
+    border-top: var(--border-width) solid var(--border-color);
+}
+
+.table tbody tr:first-child {
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.table tbody tr:has(fieldset) {
+    border-top: var(--border-width) solid var(--border-color);
+}
+
+.table tr {
+    --border-dotted-width: 4px;
+}
+
+.table tr[data-section="eta"] {
+    border-top: var(--border-width) solid var(--border-color);
+}
+
+.table tr[data-section="summary"] {
+    border-top: var(--border-width) dashed var(--border-color);
+}
+
+.table tr[data-section="summary"] div[data-row] {
+    @apply w-full flex flex-row items-center justify-between gap-2;
+}
+
+.table tr[data-section="summary"] div[data-row="original"] {
+    @apply mb-3;
+    
+    border-bottom: calc(var(--border-width) + 2px) dotted var(--border-color);
+}
+
+.table tr[data-section="summary"] div[data-row="coupon"],
+.table tr[data-section="summary"] div[data-row="discount"] {
+    padding: 0 10px;
+}
+
+.table tr[data-section="summary"] div[data-row="coupon"] *,
+.table tr[data-section="summary"] div[data-row="discount"] * {
+    @apply italic;
+}
+
+.table tr[data-section="summary"] div[data-row="coupon"] {
+    color: var(--text-contrast-color);
+    background-color: var(--secondary);
+}
+
+.table tr[data-section="summary"]:has(div[data-row="original"]) div[data-row="total"] {
+    @apply mt-3;
+    border-top: var(--border-width) solid var(--border-color);
+}
+
+.table tr,
+.table tr td {
+    height: var(--row-height);
+    min-height: var(--row-height);
+    max-height: var(--row-height);
+}
+
+.table tr td:not(td:has(div[data-type="thumbnail"])) {
+    @apply px-4;
+}
+
+
+.table tr td:first-child {
+    width: var(--img-size);
+}
+
+.table tr td[data-cell="price"] {
+    border-left: var(--border-dotted-width) dotted var(--border-dotted-color);
+}
+
+.table tr[data-type="error"],
+.table tr[data-type="error"] td {
+    padding: 0px;
+}
+
+.table tr[data-type="error"] td div {
+    @apply flex flex-row justify-center items-center gap-3;
+}
+
+.table li[data-type="error"],
+.table tr[data-type="error"] {
+    @apply bg-red-200 text-red-950;
+}
+
+.cart {
+    composes: table;
+    
+    --cart-top-position: 100%;
+
+    position: fixed;
+    left: 0px;
+    top: 100%;
+
+    transform: var(--cart-offsets, initial);
+}
+
+.cart[data-visible] {
+    --cart-top-position: calc(100% - var(--row-height));
+}
+
+.cart[data-expanded][data-visible] {
+    --cart-offsets: translate(0px, -100%);
+    
+    --cart-top-position: 100%;
+}
+
+.cart[data-expanded][data-visible][data-state="checking-out"] {
+    --cart-offsets: translate(0px, calc(100% - var(--application-nav-bar-height)));
+    
+    --cart-top-position: 0%;
+}

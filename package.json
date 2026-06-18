@@ -1,0 +1,31 @@
+{
+    "name": "madeirense-cross-platform",
+    "version": "1.0.0",
+    "private": true,
+    "workspaces": {
+        "packages": [
+            "packages/*"
+        ]
+    },
+    "scripts": {
+        "build": "yarn build:shared-code && concurrently \"yarn workspace api build\" \"yarn workspace web build\" \"yarn workspace mobile build\"",
+        "build-shared-code": "yarn workspace @Madeirense/database prisma && yarn workspace @Madeirense/database build && yarn workspace @Madeirense/shared build && yarn workspace @Madeirense/library build",
+        "build:dev": "yarn build:shared-code:dev && concurrently \"yarn workspace api build\" \"yarn workspace web build\" \"yarn workspace mobile build\"",
+        "build-shared-code:dev": "yarn workspace @Madeirense/database prisma:dev && yarn workspace @Madeirense/database build && yarn workspace @Madeirense/shared build && yarn workspace @Madeirense/library build",
+        "build:staging": "yarn build:shared-code:staging && concurrently \"yarn workspace api build\" \"yarn workspace web build\" \"yarn workspace mobile build\"",
+        "build-shared-code:staging": "yarn workspace @Madeirense/database prisma:staging && yarn workspace @Madeirense/database build && yarn workspace @Madeirense/shared build && yarn workspace @Madeirense/library build",
+        "clean": "rm -rf packages/api/node_modules/ && rm -rf packages/shared/node_modules/ && rm -rf packages/mobile/node_modules/ && rm -rf packages/web/node_modules/ && rm -rf node_modules/ yarn.lock",
+        "reinstall": "yarn clean && yarn cache clean && yarn",
+        "rebuild": "yarn reinstall && yarn build",
+        "rebuild:dev": "yarn reinstall && yarn build:dev",
+        "rebuild:staging": "yarn reinstall && yarn build:staging",
+        "start": "\"yarn workspace api start\" \"yarn workspace web start\""
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    },
+    "resolutions": {
+        "react": "^19.2.4",
+        "react-dom": "^19.2.4"
+    }
+}

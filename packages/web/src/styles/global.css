@@ -1,0 +1,56 @@
+:root {
+    --danger: #ff0000;
+    --neutral: #b9804a;
+    --primary: #ffd700;
+    --secondary: #002f6c;
+    --success: #389b50;
+    --warning: #f0b639;
+
+    --background-color: color-mix(in srgb, var(--neutral), black 70%);
+
+    --border-color: #dadada;
+    --border-width: 1px;
+
+    --text-color: #dadada;
+    --text-contrast-color: #dadada;
+
+    --page-margin: 10px;
+}
+
+*:not(div:has(.uc-visual-drop-area) *) {
+    z-index: 0;
+    color: var(--text-color);
+    box-sizing: border-box;
+    transition: all 0.1s ease-in-out;
+}
+
+body {
+    --h: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    height: var(--h);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    margin: 0;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    background-color: var(--background-color);
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+dialog * {
+    color: var(--base-text-color);
+}

@@ -1,0 +1,61 @@
+.list {
+    composes: list from "../list.module.css";
+
+    --error-height: 40px;
+
+    @apply flex flex-col justify-start items-start gap-1;
+    max-height: 300px;
+    position: relative;
+    overflow-y: auto;
+}
+
+.list:has(li[data-type="fetching"]) {
+    overflow: hidden !important;
+}
+
+.list li {
+    --tag-width: 120px;
+
+    @apply flex flex-row justify-start items-center gap-2 w-full;
+    position: relative;
+    z-index: 10;
+}
+
+.list li[data-type="error"] {
+    @apply w-full flex flex-row gap-2 justify-start items-center px-3;
+    @apply bg-red-200 text-red-950;
+    
+    height: var(--error-height);
+    max-height: var(--error-height);
+    min-height: var(--error-height);
+    top: 100%;
+    left: 0px;
+    transform: translateY(-100%);
+}
+
+.list li[data-type="empty"],
+.list li[data-type="fetching"] {
+    @apply w-full flex flex-row justify-center items-center;
+}
+
+.list li span {
+    width: var(--width);
+    font-size: 12px;
+}
+
+.list li span:nth-child(1) {
+    min-width: var(--tag-width);
+    max-width: var(--tag-width);
+}
+
+.list li span:nth-child(2) {
+    --width: 100%;
+
+    @apply font-bold;
+}
+
+.list li span:nth-child(3) {
+    --width: auto;
+
+    font-style: italic;
+}

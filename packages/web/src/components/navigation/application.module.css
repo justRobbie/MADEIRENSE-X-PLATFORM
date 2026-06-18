@@ -1,0 +1,48 @@
+.nav {
+    @apply flex flex-row items-center gap-4;
+    position: relative;
+    z-index: 11 !important;
+    grid-area: application-nav;
+    border-bottom: var(--border-width) solid var(--border-color);
+    background-color: var(--secondary);
+    padding: 0px var(--container-padding);
+}
+
+.nav * {
+    color: var(--base-text-contrast-color) !important;
+}
+
+.nav [data-text="title"] {
+    @apply font-bold text-3xl;
+}
+
+.nav #login {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.nav #sign-up {
+    border-right-width: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#root[data-page="events"] .nav {
+    background-color: black;
+}
+
+@media only screen and (max-width: 750px) {
+    .nav {
+        @apply justify-center;
+    }
+
+    .nav *:not([data-text="title"]) {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 751px) {
+    .nav {
+        @apply justify-start;
+    }
+}

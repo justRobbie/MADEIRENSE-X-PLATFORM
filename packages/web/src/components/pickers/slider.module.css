@@ -1,0 +1,23 @@
+.horizontal {
+    @apply flex flex-row flex-nowrap overflow-hidden items-center justify-start gap-11;
+
+    --height: var(--base-button-height);
+    --width: 100%;
+
+    height: var(--height);
+    max-height: var(--height);
+    min-height: var(--height);
+    width: var(--width) !important;
+}
+
+.picker button * {
+    pointer-events: none;
+}
+
+.picker .space {
+    --space-width: 5000px;
+
+    width: var(--space-width);
+    max-width: var(--space-width);
+    min-width: var(--space-width);
+}

@@ -1,0 +1,60 @@
+.button {
+    composes: button from "./button.module.css";
+
+    @apply flex flex-col justify-center items-center;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.button>div {
+    --size: 60%;
+
+    @apply flex flex-row justify-center items-center;
+    @apply opacity-40 hover:opacity-80;
+    @apply rounded-full bg-white;
+
+    height: var(--size);
+    max-height: var(--size);
+    min-height: var(--size);
+    width: var(--size);
+    max-width: var(--size);
+    min-width: var(--size);
+}
+
+/* TODO: Unimplemented style > danger */
+.danger {
+    composes: button;
+}
+
+/* TODO: Unimplemented style > important */
+.important {
+    composes: button;
+}
+
+.primary {
+    composes: button;
+
+    --button-background-color: #e6e6e6;
+}
+
+/* TODO: Unimplemented style > secondary */
+.secondary {
+    composes: button;
+}
+
+/* TODO: Unimplemented style > selected */
+.selected {
+    composes: button;
+}
+
+/* TODO: Unimplemented style > success */
+.success {
+    composes: button;
+}
+
+/* TODO: Unimplemented style > warning */
+.warning {
+    composes: button;
+}

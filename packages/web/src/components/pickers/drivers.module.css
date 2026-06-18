@@ -1,0 +1,52 @@
+.picker {
+    --header-height: 50px;
+    --items-padding-offset: 5px;
+
+    border: var(--border-width) solid var(--border-color);
+    border-radius: 10px;
+    overflow-y: auto;
+    max-height: 300px;
+    padding-top: calc(2 * var(--header-height) + var(--border-width) + var(--items-padding-offset));
+    position: relative;
+}
+
+.picker li {
+    padding: 10px;
+}
+
+.picker li:nth-child(1),
+.picker li:nth-child(2) {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: var(--header-height);
+    max-height: var(--header-height);
+    min-height: var(--header-height);
+    border-bottom-width: var(--border-width);
+    border-bottom-color: var(--border-color);
+}
+
+.picker li:nth-child(1) {
+    border-style: solid;
+}
+
+.picker li:nth-child(2) {
+    border-style: dashed;
+    transform: translateY(calc(100% + var(--border-width)));
+}
+
+.picker li:nth-child(2) button {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.picker li:nth-child(2) input {
+    border-right: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.picker li:not(:nth-child(1), :nth-child(2)):hover {
+    @apply bg-gray-100;
+}
