@@ -11,6 +11,7 @@
         "build": "yarn build:shared-code && concurrently \"yarn workspace api build\" \"yarn workspace web build\" \"yarn workspace mobile build\"",
         "build-shared-code": "yarn workspace @Madeirense/database prisma && yarn workspace @Madeirense/database build && yarn workspace @Madeirense/shared build && yarn workspace @Madeirense/library build",
         "build:dev": "yarn build:shared-code:dev && concurrently \"yarn workspace api build\" \"yarn workspace web build\" \"yarn workspace mobile build\"",
+        "build:dev-web": "yarn build:shared-code:dev && concurrently \"yarn workspace api build\" \"yarn workspace web build\"",
         "build-shared-code:dev": "yarn workspace @Madeirense/database prisma:dev && yarn workspace @Madeirense/database build && yarn workspace @Madeirense/shared build && yarn workspace @Madeirense/library build",
         "build:staging": "yarn build:shared-code:staging && concurrently \"yarn workspace api build\" \"yarn workspace web build\" \"yarn workspace mobile build\"",
         "build-shared-code:staging": "yarn workspace @Madeirense/database prisma:staging && yarn workspace @Madeirense/database build && yarn workspace @Madeirense/shared build && yarn workspace @Madeirense/library build",
