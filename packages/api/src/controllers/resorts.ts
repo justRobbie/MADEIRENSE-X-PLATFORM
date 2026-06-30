@@ -315,7 +315,7 @@ export namespace rooms {
                             }))
                         }
                     },
-                    Resort_Room_Media: {
+                    Resort_Rooms_Media: {
                         createMany: {
                             data: ([
                                 ...(thumbnail_url_collection ?? []).map(url => ({ url, type: 'Thumbnail' })),
@@ -333,7 +333,7 @@ export namespace rooms {
             });
 
             return res.status(201).json({
-                data: room,
+                data: room as resortRoomType,
                 message: 'Room added successfully',
                 success: true,
             });
