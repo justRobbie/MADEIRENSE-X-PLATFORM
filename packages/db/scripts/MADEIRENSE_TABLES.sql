@@ -1,4 +1,4 @@
-USE u322092759_PACIFICO;
+USE madeirense;
 /** -------------------------------------------------------------------------------------------------------------------------- */
 
 /** -- PRODUCTS ----------------------------------------------------------------------------- */
@@ -156,7 +156,7 @@ CREATE TABLE `Resorts` (
   `video_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`resort_id`),
   KEY `Restaurants_ibfk_1` (`location`),
-  CONSTRAINT `Restaurants_ibfk_1` FOREIGN KEY (`location`) REFERENCES `Delivery_Locations` (`location_id`) ON DELETE CASCADE
+  CONSTRAINT `DeliveryLocations_ibfk_1` FOREIGN KEY (`location`) REFERENCES `Delivery_Locations` (`location_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `Resort_Amenities` (
@@ -177,10 +177,10 @@ CREATE TABLE `Resort_Rooms` (
   `updated_at` timestamp NULL DEFAULT current_timestamp(),
   `price_per_night` decimal(10,2) NOT NULL,
   `availability` ENUM('Available','Limited','Sold Out') DEFAULT 'Available',
-  `resort_id` int(11) NOT NULL
+  `resort_id` int(11) NOT NULL,
   PRIMARY KEY (`room_id`),
   KEY `Resort_Rooms_ibfk_1` (`resort_id`),
-  CONSTRAINT `Resort_Rooms_ibfk_1` FOREIGN KEY (`resort_id`) REFERENCES `Resorts` (`resort_id`) ON DELETE CASCADE,
+  CONSTRAINT `Resort_Rooms_ibfk_1` FOREIGN KEY (`resort_id`) REFERENCES `Resorts` (`resort_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `Resort_Room_Bed_Options` (
@@ -219,6 +219,7 @@ CREATE TABLE `Resort_Bookings` (
   `user_id` INT(11) NOT NULL,
   `room_id` INT(11) NOT NULL,
   `resort_id` INT(11) NOT NULL,
+  `payment_id` INT(11) NOT NULL,
   `check_in` DATE NOT NULL,
   `check_out` DATE NOT NULL,
   `guests` INT(11) NOT NULL DEFAULT 1,
@@ -228,10 +229,10 @@ CREATE TABLE `Resort_Bookings` (
   PRIMARY KEY (`booking_id`),
   KEY `user_id` (`user_id`),
   KEY `room_id` (`room_id`),
-  KEY `room_id` (`resort_id`),
+  KEY `resort_id` (`resort_id`),
   CONSTRAINT `Resort_Bookings_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`) ON DELETE CASCADE,
-  CONSTRAINT `Resort_Bookings_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `Resort_Rooms` (`room_id`) ON DELETE CASCADE
-  CONSTRAINT `Resort_Bookings_ibfk_3` FOREIGN KEY (`resort_id`) REFERENCES `Resorts` (`resort_id`) ON DELETE CASCADE
+  CONSTRAINT `Resort_Bookings_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `Resort_Rooms` (`room_id`) ON DELETE CASCADE,
+  CONSTRAINT `Resort_Bookings_ibfk_3` FOREIGN KEY (`resort_id`) REFERENCES `Resorts` (`resort_id`) ON DELETE CASCADE,
   CONSTRAINT `Resort_Bookings_ibfk_4` FOREIGN KEY (`payment_id`) REFERENCES Resort_Booking_Payments (`payment_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -263,7 +264,6 @@ CREATE TABLE `Resort_Booking_History` (
   CONSTRAINT `Resort_Booking_History_ibfk_1` FOREIGN KEY (`booking_id`) REFERENCES `Resort_Bookings` (`booking_id`) ON DELETE CASCADE,
   CONSTRAINT `Resort_Booking_History_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 
 CREATE TABLE `Resort_Booking_Cancellation_Policies` (
   `policy_id` INT AUTO_INCREMENT PRIMARY KEY,
@@ -536,7 +536,7 @@ CREATE TABLE `Global_Settings` (
   `avg_ttd` int(11) NOT NULL DEFAULT 20,
   `prep_buffer` int(11) NOT NULL DEFAULT 20,
   `auto_assign_driver` tinyint(1) DEFAULT 0,
-  `change_version` char(36) NOT NULL DEFAULT uuid(),
+  `change_version` char(36) NOT NULL,
   PRIMARY KEY (`setting_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
