@@ -16,7 +16,7 @@
         "typescript"
     ],
     "scripts": {
-        "build": "tsc",
+        "build": "tsc && tsc-alias",
         "build:all": "npm run prisma && npm run generate:swagger-schemas && npm run build",
         "clean": "rm -rf ./node_modules ./dist",
         "dev": "nodemon --config nodemon.development.json",
@@ -69,6 +69,7 @@
         "@typescript-eslint/parser": "^6.15.0",
         "eslint": "^8.56.0",
         "nodemon": "^3.1.11",
+        "tsc-alias": "^1.8.17",
         "tsx": "^4.6.2",
         "typescript": "^5.3.3",
         "typescript-json-schema": "^0.67.1"
