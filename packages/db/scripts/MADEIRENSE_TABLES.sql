@@ -177,6 +177,7 @@ CREATE TABLE `Resort_Rooms` (
   `updated_at` timestamp NULL DEFAULT current_timestamp(),
   `price_per_night` decimal(10,2) NOT NULL,
   `availability` ENUM('Available','Limited','Sold Out') DEFAULT 'Available',
+  `quantity` int(11) DEFAULT 1,
   `resort_id` int(11) NOT NULL,
   PRIMARY KEY (`room_id`),
   KEY `Resort_Rooms_ibfk_1` (`resort_id`),

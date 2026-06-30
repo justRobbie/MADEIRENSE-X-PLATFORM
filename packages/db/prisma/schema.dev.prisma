@@ -497,18 +497,6 @@ model Resort_Room_Amenities {
   @@index([amenity_id], map: "Resort_Room_Amenities_ibfk_2")
 }
 
-model Resort_Room_Media {
-  media_id     Int                          @id @default(autoincrement())
-  room_id      Int
-  created_at   DateTime?                    @default(now()) @db.Timestamp(0)
-  updated_at   DateTime?                    @default(now()) @db.Timestamp(0)
-  media_url    String?                      @db.VarChar(255)
-  media_type   Resort_Room_Media_media_type
-  Resort_Rooms Resort_Rooms                 @relation(fields: [room_id], references: [room_id], onDelete: NoAction, onUpdate: NoAction, map: "Resort_Rooms_Media_ibfk_1")
-
-  @@index([room_id], map: "Resort_Rooms_Media_ibfk_1")
-}
-
 model Resort_Rooms {
   room_id                 Int                        @id @default(autoincrement())
   name                    String                     @db.VarChar(255)
@@ -521,8 +509,8 @@ model Resort_Rooms {
   Resort_Bookings         Resort_Bookings[]
   Resort_Room_Amenities   Resort_Room_Amenities[]
   Resort_Room_Bed_Options Resort_Room_Bed_Options[]
-  Resort_Room_Media       Resort_Room_Media[]
   Resorts                 Resorts                    @relation(fields: [resort_id], references: [resort_id], onDelete: NoAction, onUpdate: NoAction, map: "Resort_Rooms_ibfk_1")
+  Resort_Rooms_Media      Resort_Rooms_Media[]
 
   @@index([resort_id], map: "Resort_Rooms_ibfk_1")
 }
@@ -591,6 +579,18 @@ model Resort_Booking_History {
 
   @@index([booking_id], map: "booking_id")
   @@index([user_id], map: "user_id")
+}
+
+model Resort_Rooms_Media {
+  media_id     Int                           @id @default(autoincrement())
+  room_id      Int
+  created_at   DateTime?                     @default(now()) @db.Timestamp(0)
+  updated_at   DateTime?                     @default(now()) @db.Timestamp(0)
+  media_url    String?                       @db.VarChar(255)
+  media_type   Resort_Rooms_Media_media_type
+  Resort_Rooms Resort_Rooms                  @relation(fields: [room_id], references: [room_id], onDelete: NoAction, onUpdate: NoAction, map: "Resort_Rooms_Media_ibfk_1")
+
+  @@index([room_id], map: "Resort_Rooms_Media_ibfk_1")
 }
 
 enum Global_Settings_Eligible_Payment_Types_payment_method {
@@ -720,11 +720,6 @@ enum Resort_Booking_Payments_status {
   refunded
 }
 
-enum Resort_Room_Media_media_type {
-  Thumbnail
-  Video
-}
-
 enum Resort_Bookings_status {
   pending
   confirmed
@@ -760,4 +755,9 @@ enum Resort_Booking_History_status {
   confirmed
   cancelled
   completed
+}
+
+enum Resort_Rooms_Media_media_type {
+  Thumbnail
+  Video
 }
