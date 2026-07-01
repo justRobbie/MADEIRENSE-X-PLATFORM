@@ -26,6 +26,8 @@ jobs:
 
       - name: Build shared code
         run: yarn build-shared-code
+        env:
+          DATABASE_URL: "mysql://user:password@localhost:3306/madeirense" 
 
       - name: Build API and Web
         run: yarn concurrently "yarn workspace api build" "yarn workspace web build"
