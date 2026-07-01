@@ -41,9 +41,9 @@ jobs:
             cd /var/www/madeirense
             git checkout staging
             git pull origin staging
+            nvm use 22
             yarn install --frozen-lockfile --production
-            DATABASE_URL="${{ secrets.DATABASE_URL }}" \
-              yarn workspace @Madeirense/database exec prisma migrate deploy
+            DATABASE_URL="${{ secrets.DATABASE_URL }}" 
             pm2 reload ecosystem.config.js --env production || \
             pm2 start ecosystem.config.js --env production
             pm2 save
