@@ -7,6 +7,7 @@
     "types": "dist/index.d.ts",
     "scripts": {
         "build": "tsc",
+        "generate": "prisma generate",
         "prisma": "prisma db pull && prisma generate",
         "prisma:dev": "prisma db pull --schema ./prisma/schema.dev.prisma && prisma generate --schema ./prisma/schema.dev.prisma",
         "prisma:staging": "prisma db pull --schema ./prisma/schema.staging.prisma && prisma generate --schema ./prisma/schema.staging.prisma"
