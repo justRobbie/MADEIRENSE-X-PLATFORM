@@ -20,7 +20,8 @@
         "rebuild": "yarn reinstall && yarn build",
         "rebuild:dev": "yarn reinstall && yarn build:dev",
         "rebuild:staging": "yarn reinstall && yarn build:staging",
-        "start": "\"yarn workspace api start\" \"yarn workspace web start\""
+        "start:local": "\"yarn workspace api start\" \"yarn workspace web start\"",
+        "start": "pm2 start ecosystem.config.js --env production"
     },
     "devDependencies": {
         "concurrently": "^8.2.2"
