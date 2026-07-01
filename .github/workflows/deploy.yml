@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'yarn'
 
       - name: Install dependencies
@@ -41,7 +41,6 @@ jobs:
             cd /var/www/madeirense
             git checkout staging
             git pull origin staging
-            nvm use 22
             yarn install --frozen-lockfile --production
             DATABASE_URL="${{ secrets.DATABASE_URL }}" 
             pm2 reload ecosystem.config.js --env production || \
