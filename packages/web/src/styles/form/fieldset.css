@@ -4,15 +4,15 @@ fieldset {
     padding: 20px;
 }
 
-[data-theme="land-dark"] fieldset {}
+[data-theme="LAND-DARK"] fieldset {}
 
-[data-theme="land-light"] fieldset {}
+[data-theme="LAND-LIGHT"] fieldset {}
 
-[data-theme="sea-dark"] fieldset {
+[data-theme="SEA-DARK"] fieldset {
     background-color: color-mix(in srgb, var(--primary-dark), black 40%);
 }
 
-[data-theme="sea-light"] fieldset {}
+[data-theme="SEA-LIGHT"] fieldset {}
 
 fieldset legend {
     @apply font-bold;

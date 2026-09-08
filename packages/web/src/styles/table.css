@@ -11,33 +11,33 @@ table td {
     @apply px-3
 }
 
-[data-theme="land-dark"] table {}
+[data-theme="LAND-DARK"] table {}
 
-[data-theme="land-light"] table {}
+[data-theme="LAND-LIGHT"] table {}
 
-[data-theme="sea-dark"] table {
+[data-theme="SEA-DARK"] table {
     --table-border-color: var(--primary-light);
     --table-cell-border-color: var(--primary-light);
 }
 
-[data-theme="sea-dark"] table tbody {
+[data-theme="SEA-DARK"] table tbody {
     background-color: color-mix(in srgb, var(--primary-dark), white 12%);
 }
 
-[data-theme="sea-dark"] table tbody tr:hover {
+[data-theme="SEA-DARK"] table tbody tr:hover {
     background-color: color-mix(in srgb, var(--primary-dark), white 10%);
 }
 
-[data-theme="sea-dark"] table tbody tr td:hover {
+[data-theme="SEA-DARK"] table tbody tr td:hover {
     background-color: color-mix(in srgb, var(--primary-dark), white 8%);
 }
 
-[data-theme="sea-dark"] table tfoot {
+[data-theme="SEA-DARK"] table tfoot {
     background-color: color-mix(in srgb, var(--primary-dark), black 22%);
 }
 
-[data-theme="sea-dark"] table thead {
+[data-theme="SEA-DARK"] table thead {
     background-color: color-mix(in srgb, var(--primary-dark), black 22%);
 }
 
-[data-theme="sea-light"] table {}
+[data-theme="SEA-LIGHT"] table {}

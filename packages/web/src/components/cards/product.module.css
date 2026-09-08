@@ -122,7 +122,7 @@
     composes: card;
 }
 
-[data-theme*="dark"] .fish {
+[data-theme*="DARK"] .fish {
     --card-background-color: var(--primary-light);
     --card-border-color: var(--primary-light);
     --card-border-style: dashed;
@@ -130,7 +130,7 @@
     --text-color: var(--success-dark);
 }
 
-[data-theme*="dark"] .fish div[data-section="thumbnail"] {
+[data-theme*="DARK"] .fish div[data-section="thumbnail"] {
     background-color: var(--primary-dark);
 }
 
@@ -138,14 +138,14 @@
     composes: card;
 }
 
-[data-theme*="dark"] .meat {
+[data-theme*="DARK"] .meat {
     --card-background-color: color-mix(in srgb, var(--accent), black 40%);
     --card-border-color: color-mix(in srgb, var(--accent), white 40%);
 
     --text-color: color-mix(in srgb, var(--accent), white 80%);
 }
 
-[data-theme*="dark"] .meat div[data-section="thumbnail"] {
+[data-theme*="DARK"] .meat div[data-section="thumbnail"] {
     background-color: color-mix(in srgb, var(--accent), black 70%);
 }
 
@@ -165,14 +165,14 @@
     composes: card;
 }
 
-[data-theme="sea-dark"] .vegan {
+[data-theme="SEA-DARK"] .vegan {
     --card-border-color: var(--success);
     --card-background-color: color-mix(in srgb, var(--success), var(--success-dark) 45%);
 
     --text-color: var(--success-dark);
 }
 
-[data-theme="land-dark"] .vegan {
+[data-theme="LAND-DARK"] .vegan {
     --card-border-color: var(--success);
     --card-background-color: color-mix(in srgb, var(--success-dark) 80%, var(--success) 15%);
     
@@ -187,14 +187,14 @@
     composes: card;
 }
 
-[data-theme="sea-dark"] .wheat {
+[data-theme="SEA-DARK"] .wheat {
     --card-border-color: var(--secondary);
     --card-background-color: var(--secondary);
     
     --text-color: var(--success-dark);
 }
 
-[data-theme="land-dark"] .wheat {
+[data-theme="LAND-DARK"] .wheat {
     --card-border-color: var(--secondary);
     --card-background-color: var(--secondary-light);
     

@@ -43,6 +43,7 @@ import {
 import type {
     IAuthenticatedRequest
 } from '../interfaces';
+import { convertDecimals } from 'utilities/converters';
 
 // ***************************************************************************************************************
 
@@ -501,7 +502,7 @@ export const createOrder = async (
         req.events?.orders.SILENT$emit('order.created');
 
         return res.status(201).json({
-            data: order,
+            data: convertDecimals(order),
             message: `Order created successfully${!purchasedTickets ? '' : '. Tickets were automatically purchased and associated with your account.'}`,
             success: true
         });
@@ -755,7 +756,7 @@ export const getMyOrders = async (
         const totalPages = Math.ceil(total / limit);
 
         return res.json({
-            data: orders,
+            data: convertDecimals(orders),
             message: 'User orders retrieved successfully',
             pagination: {
                 page,
@@ -820,7 +821,7 @@ export const getAllOrders = async (
         const totalPages = Math.ceil(total / limit);
 
         return res.json({
-            data: orders,
+            data: convertDecimals(orders),
             message: 'Orders retrieved successfully',
             pagination: {
                 page,
@@ -878,7 +879,7 @@ export const getOrderById = async (
         return res.json({
             success: true,
             message: 'Order retrieved successfully',
-            data: order
+            data: convertDecimals(order)
         });
     } catch (error) {
         return handleControllerError(

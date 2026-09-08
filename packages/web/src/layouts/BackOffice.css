@@ -19,15 +19,15 @@
     padding: var(--base-padding);
 }
 
-[data-theme="land-dark"] #root[data-page="back-office"]>main>section {}
+[data-theme="LAND-DARK"] #root[data-page="back-office"]>main>section {}
 
-[data-theme="land-light"] #root[data-page="back-office"]>main>section {}
+[data-theme="LAND-LIGHT"] #root[data-page="back-office"]>main>section {}
 
-[data-theme="sea-dark"] #root[data-page="back-office"]>main>section {
+[data-theme="SEA-DARK"] #root[data-page="back-office"]>main>section {
     background-color: color-mix(in srgb, var(--primary-dark), black 40%);
 }
 
-[data-theme="sea-light"] #root[data-page="back-office"]>main>section {}
+[data-theme="SEA-LIGHT"] #root[data-page="back-office"]>main>section {}
 
 #root[data-page="back-office"] main>section:not(:last-of-type) {
     @apply mb-5;

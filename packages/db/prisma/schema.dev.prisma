@@ -325,6 +325,7 @@ model Restaurants {
   thumbnail_url      String?             @db.VarChar(255)
   ttp                Int
   ttd                Int
+  Application_Theme  Application_Theme[]
   Chat_Messages      Chat_Messages[]
   Orders             Orders[]
   Products           Products[]
@@ -594,6 +595,15 @@ model Resort_Rooms_Media {
   @@index([room_id], map: "Resort_Rooms_Media_ibfk_1")
 }
 
+model Application_Theme {
+  restaurant_id Int
+  theme         Application_Theme_theme
+  Restaurants   Restaurants             @relation(fields: [restaurant_id], references: [restaurant_id], onDelete: NoAction, onUpdate: NoAction, map: "Application_Theme_ibfk_1")
+
+  @@id([restaurant_id, theme])
+  @@index([restaurant_id], map: "restaurant_id")
+}
+
 enum Global_Settings_Eligible_Payment_Types_payment_method {
   Credit_Card        @map("Credit Card")
   Debit_Card         @map("Debit Card")
@@ -773,4 +783,9 @@ enum Products_product_type {
   dessert
   beverage
   ticket
+}
+
+enum Application_Theme_theme {
+  LAND
+  SEA
 }

@@ -46,7 +46,7 @@
     --button-background-color: #e6e6e6;
 }
 
-[data-theme*="dark"] .primary {
+[data-theme*="DARK"] .primary {
     --button-border-color: var(--neutral-dark);
 }
 

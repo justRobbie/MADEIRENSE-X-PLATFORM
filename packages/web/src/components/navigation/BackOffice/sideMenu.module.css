@@ -21,15 +21,15 @@
     transition-duration: 0.5s;
 }
 
-[data-theme="land-dark"] .menu {}
+[data-theme="LAND-DARK"] .menu {}
 
-[data-theme="land-light"] .menu {}
+[data-theme="LAND-LIGHT"] .menu {}
 
-[data-theme="sea-dark"] .menu {
+[data-theme="SEA-DARK"] .menu {
     background-color: var(--secondary-dark);
 }
 
-[data-theme="sea-light"] .menu {}
+[data-theme="SEA-LIGHT"] .menu {}
 
 .menu ul li {
     @apply flex flex-row justify-center items-center;
@@ -59,16 +59,16 @@
     --anchor-border-width: 4px;
 }
 
-[data-theme="land-dark"] .menu ul li a[data-active] {}
+[data-theme="LAND-DARK"] .menu ul li a[data-active] {}
 
-[data-theme="land-light"] .menu ul li a[data-active] {}
+[data-theme="LAND-LIGHT"] .menu ul li a[data-active] {}
 
-[data-theme="sea-dark"] .menu ul li a[data-active] {
+[data-theme="SEA-DARK"] .menu ul li a[data-active] {
     --anchor-background-color: color-mix(in srgb, var(--secondary), black 60%);
     --anchor-border-color: var(--secondary);
 }
 
-[data-theme="sea-light"] .menu ul li a[data-active] {}
+[data-theme="SEA-LIGHT"] .menu ul li a[data-active] {}
 
 .menu:not([data-toggled]) {
     @apply items-center;

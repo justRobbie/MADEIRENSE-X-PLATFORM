@@ -27,15 +27,15 @@
     justify-content: space-between;
 }
 
-[data-theme="land-dark"] .list li:last-child {}
+[data-theme="LAND-DARK"] .list li:last-child {}
 
-[data-theme="land-light"] .list li:last-child {}
+[data-theme="LAND-LIGHT"] .list li:last-child {}
 
-[data-theme="sea-dark"] .list li:last-child {
+[data-theme="SEA-DARK"] .list li:last-child {
     background-color: var(--primary);
 }
 
-[data-theme="sea-light"] .list li:last-child {}
+[data-theme="SEA-LIGHT"] .list li:last-child {}
 
 .list li:last-child * {
     color: var(--base-text-contrast-color);

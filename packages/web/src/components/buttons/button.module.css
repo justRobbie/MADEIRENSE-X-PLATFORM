@@ -184,12 +184,12 @@
     composes: text;
 }
 
-[data-theme="land-dark"] .text-selected {
+[data-theme="LAND-DARK"] .text-selected {
     --button-background-color: var(--primary-dark);
     --text-color: var(--secondary);
 }
 
-[data-theme="sea-dark"] .text-selected {
+[data-theme="SEA-DARK"] .text-selected {
     --button-background-color: var(--secondary-dark);
     --text-color: var(--secondary);
 }

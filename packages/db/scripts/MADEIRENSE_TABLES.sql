@@ -299,6 +299,17 @@ CREATE TABLE `Resort_Chat_Messages` (
   CONSTRAINT `fk_resort_sender` FOREIGN KEY (`sender_id`) REFERENCES `Users` (`user_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE `Application_Theme` (
+  `restaurant_id` int(11) NOT NULL,
+  `theme` ENUM(
+    'LAND',
+    'SEA'
+  ) NOT NULL,
+  PRIMARY KEY (`restaurant_id`, `theme`),
+  KEY `restaurant_id` (`restaurant_id`),
+  CONSTRAINT `Application_Theme_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `Restaurants` (`restaurant_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE `Restaurants` (
   `restaurant_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,

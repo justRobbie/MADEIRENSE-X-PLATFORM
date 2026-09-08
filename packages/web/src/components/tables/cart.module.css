@@ -206,7 +206,7 @@
     composes: table;
 }
 
-[data-theme="sea-dark"] .order {
+[data-theme="SEA-DARK"] .order {
     --input-element-border-color: var(--secondary);
     --table-row-border-color: var(--secondary);
 }

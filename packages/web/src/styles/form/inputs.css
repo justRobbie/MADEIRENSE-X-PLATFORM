@@ -20,15 +20,15 @@ textarea {
     padding: 12px;
 }
 
-[data-theme*="dark"] input,
-[data-theme*="dark"] select,
-[data-theme*="dark"] textarea {
+[data-theme*="DARK"] input,
+[data-theme*="DARK"] select,
+[data-theme*="DARK"] textarea {
     border-bottom: 1px solid var(--input-element-border-color, var(--base-input-element-border-color, var(--neutral-light)));
     background-color: var(--background-color);
 }
 
-[data-theme="sea-dark"] input,
-[data-theme="sea-dark"] select,
-[data-theme="sea-dark"] textarea {
+[data-theme="SEA-DARK"] input,
+[data-theme="SEA-DARK"] select,
+[data-theme="SEA-DARK"] textarea {
     --base-input-element-border-color: var(--primary-light);
 }

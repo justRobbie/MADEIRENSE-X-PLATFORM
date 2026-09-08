@@ -61,7 +61,7 @@
 }
 
 /* TODO: Unimplemented style > success */
-[data-theme*="dark"] .success {
+[data-theme*="DARK"] .success {
     --tag-background-color: var(--success-dark);
     --tag-border-color: var(--success);
     --tag-text-color: var(--success);
@@ -72,7 +72,7 @@
     composes: tag;
 }
 
-[data-theme*="dark"] .warning {
+[data-theme*="DARK"] .warning {
     --tag-background-color: var(--secondary);
     --tag-border-style: dotted;
     --tag-border-color: var(--secondary-dark);

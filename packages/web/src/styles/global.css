@@ -72,37 +72,37 @@ body {
     background-color: var(--background-color);
 }
 
-body[data-theme*="dark"] {
+body[data-theme*="DARK"] {
     --base-text-color: var(--neutral-light);
 
     --text-contrast-color: var(--neutral-light);
 }
 
-body[data-theme*="light"] {
+body[data-theme*="LIGHT"] {
     --base-text-color: var(--neutral-dark);
     
     --text-contrast-color: var(--neutral-dark);
 }
 
-body[data-theme="land-dark"] {
+body[data-theme="LAND-DARK"] {
     --base-border-color: var(--secondary);
     --base-background-color: color-mix(in srgb, var(--secondary-dark), black 50%);
 
     --background-color: color-mix(in srgb, var(--secondary-dark), black 50%);
 }
 
-body[data-theme="land-light"] {
+body[data-theme="LAND-LIGHT"] {
     --background-color: color-mix(in srgb, var(--secondary-light), white 70%);
 }
 
-body[data-theme="sea-dark"] {
+body[data-theme="SEA-DARK"] {
     --base-border-color: var(--primary-light);
     --base-background-color: var(--primary);
 
     --background-color: var(--primary-dark);
 }
 
-body[data-theme="sea-light"] {
+body[data-theme="SEA-LIGHT"] {
     --background-color: color-mix(in srgb, var(--primary-light), black 70%);
 }
 

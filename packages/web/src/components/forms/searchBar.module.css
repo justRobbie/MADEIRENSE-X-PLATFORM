@@ -7,7 +7,7 @@
     border-radius: 8px;
 }
 
-[data-theme*="dark"] .form {
+[data-theme*="DARK"] .form {
     --form-border-color: var(--neutral-light);
 }
 

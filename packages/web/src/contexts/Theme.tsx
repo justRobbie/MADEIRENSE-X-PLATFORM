@@ -26,14 +26,14 @@ const ThemeContext = createContext<ThemeContextType>({
 });
 
 const ThemeProvider = ({ children }: any) => {
-    const [currentTheme, setCurrentTheme] = useState<Application$Types.Themes.types>("sea-dark");
+    const [currentTheme, setCurrentTheme] = useState<Application$Types.Themes.types>("SEA-DARK");
 
     const switchTheme = () => {
         let theme: Application$Types.Themes.options = (currentTheme.split("-")[0] as Application$Types.Themes.options);
 
         switch (theme) {
-            case "land": theme = "sea"; break;
-            case "sea": theme = "land"; break;
+            case "LAND": theme = "SEA"; break;
+            case "SEA": theme = "LAND"; break;
         
             default:
                 break;
@@ -53,8 +53,8 @@ const ThemeProvider = ({ children }: any) => {
         let variant: Application$Types.Themes.variants = (currentTheme.split("-")[1] as Application$Types.Themes.variants);
 
         switch (variant) {
-            case "dark": variant = "light"; break;
-            case "light": variant = "dark"; break;
+            case "DARK": variant = "LIGHT"; break;
+            case "LIGHT": variant = "DARK"; break;
         
             default:
                 break;
@@ -71,6 +71,10 @@ const ThemeProvider = ({ children }: any) => {
         if (!$body)
             return;
 
+        // Must find the nearest and select it. 
+        // Madeirense mar (near the SEA) is Sea
+        // The other one is LAND.
+        // The resort is also the SEA theme.
         $body.setAttribute(Root$Enumerators.Attributes.Styles.theme, currentTheme);
     }, [currentTheme])
 
