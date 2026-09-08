@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 
 import {
     formatNumber,
+    Madeirense$Enumerators,
     resolveClassNames,
     type restaurantEventType,
     type withEmptyString,
@@ -173,7 +174,7 @@ function RestaurantEventList(_props: IPropTypes) {
                             {(disableLink)
                                 ? <span className="font-extrabold">{item.name}</span>
 
-                                : <Link className="font-extrabold" to={`/back-office/restaurants/party/${item.event_id}`}>{item.name}</Link>
+                                : <Link className="font-extrabold" to={`${Madeirense$Enumerators.Pages.BackOffice.RestaurantEvent}/${item.event_id}`}>{item.name}</Link>
                             }
 
                             <Tag variant="secondary" className="italic">

@@ -1,14 +1,14 @@
 .panel {
     @apply flex flex-col justify-start items-start gap-4;
-    
+
     z-index: 998;
     position: fixed;
     overflow: auto;
     top: 70px;
     left: 100%;
-    
+
     height: calc(100% - 70px);
-    
+
     width: calc(100% - 52px);
 
     padding: var(--base-padding) 10vw;
@@ -18,22 +18,25 @@
     transition: transform 0.4s ease-in-out;
 }
 
+.panel>section {
+    border-radius: 12px;
+    padding: 20px;
+}
+
+[data-theme="LAND-DARK"] .panel>section {}
+
+[data-theme="SEA-DARK"] .panel>section {
+    background-color: color-mix(in srgb, var(--primary), black 80%);
+}
+
 .panel[data-enabled] {
     transform: translateX(-100%);
 }
 
-@media only screen and (min-width: 344px) {
-    
-}
+@media only screen and (min-width: 344px) {}
 
-@media only screen and (min-width: 428px) {
-    
-}
+@media only screen and (min-width: 428px) {}
 
-@media only screen and (min-width: 768px) {
-    
-}
+@media only screen and (min-width: 768px) {}
 
-@media only screen and (min-width: 1366px) {
-    
-}
+@media only screen and (min-width: 1366px) {}

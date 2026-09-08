@@ -23,6 +23,8 @@ import {
 
 import { prisma } from '../lib/prisma';
 
+import { convertDecimals } from 'utilities/converters';
+
 import type { IEventfulRequest } from '../middlewares/events';
 
 // ***************************************************************************************************************
@@ -310,7 +312,14 @@ export async function getAllRestaurantEvents(
 
         const totalPages = Math.ceil(total / limit);
 
-        events = events.map(({ price, ...e }) => ({
+        // convertDecimals covers the nested `Products` (tickets) array too —
+        // those weren't going through any conversion at all before, so a
+        // ticket's `price`/`discount` (Prisma Decimal) was reaching
+        // clients as a JSON string, not a number. Same bug class already
+        // fixed for orders.ts/coupon.ts (see mobile/CLAUDE.md); the
+        // top-level `price` still gets its own parseFloat first since
+        // it's destructured out before the rest is converted.
+        events = events.map(({ price, ...e }) => convertDecimals({
             price: parseFloat(price.toString()) as any,
             ...e
         }));
@@ -530,8 +539,12 @@ export async function getRestaurantEventById(
             });
         }
 
+        // Unlike getAllRestaurantEvents, this endpoint wasn't converting
+        // Decimal fields at all — not even the event's own `price`, let
+        // alone the nested `Products` (tickets) array. convertDecimals
+        // covers both in one pass.
         return res.status(200).json({
-            data: event,
+            data: convertDecimals(event),
             message: 'Restaurant event retrieved successfully',
             success: true
         });

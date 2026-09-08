@@ -279,7 +279,7 @@ export const appRoutesTree: ReadonlyArray<IAppRoute> = [
 					},
 					{
 						id: "back-office-restaurant-events",
-						path: `${Madeirense$Enumerators.Pages.BackOffice.RestaurantEvent}/:id`,
+						path: `${Madeirense$Enumerators.Pages.BackOffice.RestaurantEvent}/:id?`,
 						label: "events",
 						element: <BackOfficeRestaurantPage />,
 						userRoles: [
